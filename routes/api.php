@@ -25,7 +25,3 @@ Route::put('/alumnos/{id}', [AlumnoController::class,'update']);
 Route::get('/alumnos/{id}', [AlumnoController::class,'show']);
 Route::delete('/alumnos/{id}', [AlumnoController::class,'delete']);
 Route::get('/estadisticas', [AlumnoController::class,'estadisticas']);
-Route::get('/beca', [AlumnoController::class,'beca']);
-Route::get('/horario', [AlumnoController::class,'horario']);
-Route::get('/calificacion', [AlumnoController::class,'calificacion']);
-Route::get('/problemas', [AlumnoController::class,'problemas']);

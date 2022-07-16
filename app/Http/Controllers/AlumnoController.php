@@ -21,58 +21,27 @@ class AlumnoController extends Controller
 
         $masculino =  Alumno::where("genero","M")->count();
         $femenino =  Alumno::where("genero","F")->count();
-
-        return response([
-            'masculinos'=>$masculino,
-            'femeninos'=>$femenino,
-        ]);
-    }
-
-    public function beca (Request $Request)
-    {
-
         $becado =  Alumno::where("becado","si")->count();
         $nbecado =  Alumno::where("becado","no")->count();
-
-        return response([
-            'Si'=>$becado,
-            'No'=>$nbecado,
-        ]);
-    }
-
-    public function horario (Request $Request)
-    {
-
         $matutino =  Alumno::where("horario","matutino")->count();
         $vespertino =  Alumno::where("horario","vespertino")->count();
-
-        return response([
-            'matutino'=>$matutino,
-            'vespertino'=>$vespertino,
-        ]);
-    }
-
-    public function calificacion (Request $Request)
-    {
-
         $reprobados =  Alumno::where("calificacion_prepa", "<=", "6")->count();
         $aprobados =  Alumno::where("calificacion_prepa",">=", "7")->count();
-
-        return response([
-            'reprobados' => $reprobados,
-            'aprobados' => $aprobados,
-        ]);
-    }
-
-    public function problemas (Request $Request)
-    {
-
         $nprobelmas =  Alumno::where("problemas_de_salud","No")->count();
         $problemas =  Alumno::where("problemas_de_salud","Si")->count();
 
         return response([
-            'sin_problemas_de_salud'=>$nprobelmas,
-            'problemas_de_salud'=>$problemas,
+            'masculinos'=> $masculino,
+            'femeninos'=> $femenino,
+            'Si_becados'=> $becado,
+            'No_becados'=> $nbecado,
+            'matutino'=> $matutino,
+            'vespertino'=> $vespertino,
+            'reprobados_de_prepa' => $reprobados,
+            'aprobados_de_prepa' => $aprobados,
+            'sin_problemas_de_salud'=> $nprobelmas,
+            'problemas_de_salud'=> $problemas,
+
         ]);
     }
 
